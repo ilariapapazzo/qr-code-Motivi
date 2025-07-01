@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MOTIVI • Cura & Styling del tuo Acquisto</title>
+
+<!-- Google Fonts + Font Awesome per icone care‑label -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+    /* Palette pastello “nude” + accenti rosa MOTIVI */
+    --col-primary:#e26da9;
+    --col-dark:#1e1e1e;
+    --col-soft:#faf7f5;
+    --col-card:#ffffff;
+    --col-grey:#6f6f6f;
+    --radius-card:14px;
+    --shadow-card:0 10px 28px 0 rgba(0,0,0,.06);
+    --font-main:'Poppins',Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:var(--font-main);
+    color:var(--col-dark);
+    background:var(--col-soft);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{margin:.2em 0 .6em}
+h1{font-size:1.2rem;font-weight:600;letter-spacing:.25em;text-align:center}
+h2{font-size:1.25rem;font-weight:600;color:var(--col-dark)}
+p{margin:.3em 0}
+a{color:inherit}
+
+.flashbar{
+    background:#f8e9e9;
+    color:var(--col-primary);
+    font-size:.85rem;
+    padding:.55rem 1rem;
+    text-align:center;
+    border-bottom:1px solid #f1d6d6;
+}
+.flashbar .star{font-size:.9rem;margin:0 .2rem}
+
+.container{
+    max-width:1050px;
+    margin:2rem auto;
+    padding:0 1.2rem;
+}
+
+/* --- CARD PRODOTTO PRINCIPALE --- */
+.product-card{
+    background:var(--col-card);
+    border-radius:var(--radius-card);
+    box-shadow:var(--shadow-card);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    gap:1.8rem;
+    padding:2rem;
+}
+.product-card img{
+    width:100%;
+    max-width:280px;
+    object-fit:cover;
+    border-radius:8px;
+    align-self:center;
+}
+.product-info{flex:1}
+.care-icons{
+    display:flex;
+    gap:.6rem;
+    margin-bottom:.8rem;
+}
+.care-icons i{
+    width:34px;
+    height:34px;
+    line-height:34px;
+    text-align:center;
+    border:1px solid #e0e0e0;
+    border-radius:50%;
+    font-size:.95rem;
+    background:#fff;
+    color:var(--col-primary);
+}
+.care-list{
+    margin:.4rem 0 1.2rem;
+    padding-left:1.1rem;
+    font-size:.9rem;
+    color:var(--col-grey);
+}
+.care-list li{margin:.25rem 0}
+
+.comp-box{
+    background:#fafafa;
+    border-left:4px solid var(--col-primary);
+    padding:.9rem 1rem;
+    border-radius:6px;
+    font-size:.9rem;
+}
+
+/* --- SEZIONE ABBINAMENTI --- */
+.section-title{
+    text-align:center;
+    margin:3.2rem 0 2rem;
+    font-size:1.35rem;
+    font-weight:600;
+}
+.pair-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.5rem;
+}
+.pair-card{
+    background:var(--col-card);
+    border-radius:var(--radius-card);
+    box-shadow:var(--shadow-card);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+.pair-img{
+    position:relative;
+    padding-top:115%; /* 1:1.15 (circa) */
+    background:linear-gradient(135deg,#f4e7e1 0%,#e5d8d1 100%);
+}
+.pair-img img{
+    position:absolute;
+    top:50%;left:50%;
+    width:70%;height:70%;
+    object-fit:contain;
+    transform:translate(-50%,-50%);
+}
+.pair-label{
+    position:absolute;
+    bottom:10px;left:14px;
+    font-size:.7rem;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:#ffffff80;
+}
+.pair-body{
+    padding:1.4rem 1rem 1.8rem;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    gap:.9rem;
+}
+.btn{
+    display:inline-block;
+    padding:.55rem 1.6rem;
+    border-radius:50px;
+    font-size:.85rem;
+    font-weight:600;
+    text-decoration:none;
+    transition:background .25s,transform .15s;
+    background:var(--col-dark);
+    color:#fff;
+}
+.btn:hover{background:#000;transform:translateY(-2px)}
+/* light outline button variant for footer */
+.btn-outline{
+    background:transparent;
+    border:2px solid #fff;
+}
+.btn-outline:hover{background:#fff;color:var(--col-dark)}
+
+.pair-body .btn{align-self:center}
+
+/* --- FOOTER CTA --- */
+footer{
+    background:var(--col-dark);
+    color:#fff;
+    margin-top:4rem;
+    padding:2.5rem 1rem;
+}
+.footer-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2rem;
+    max-width:1050px;
+    margin:0 auto;
+}
+.footer-item h3{
+    font-size:1rem;
+    font-weight:600;
+    margin-bottom:.4rem;
+}
+.footer-item p{
+    font-size:.85rem;
+    color:#bfbfbf;
+    margin-bottom:1.2rem;
+}
+.footer-item .btn{align-self:flex-start}
+
+/* --- RESPONSIVE --- */
+@media(min-width:720px){
+    .product-card{flex-direction:row}
+    .product-card img{max-width:330px}
+    .pair-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:960px){
+    .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- BRAND -->
+<header>
+    <h1>M O T I V I</h1>
+</header>
+
+<!-- MESSAGGIO POST‑QR -->
+<div class="flashbar">
+    <span class="star">✨</span>
+    Grazie per aver scannerizzato il QR Code! Scopri tutto sul tuo nuovo acquisto
+    <span class="star">✨</span>
+</div>
+
+<main class="container">
+
+    <!-- CARD PRODOTTO COMPRATO -->
+    <section class="product-card">
+
+        <img src="https://i.imgur.com/28TbfFW.png" alt="Blusa in pizzo MOTIVI">
+
+        <div class="product-info">
+            <h2>Blusa in Pizzo — Il tuo nuovo acquisto</h2>
+
+            <!-- Icone cura capo -->
+            <div class="care-icons" aria-label="Simboli di lavaggio">
+                <i class="fa-solid fa-hand"></i>       <!-- Lavare a mano -->
+                <i class="fa-solid fa-xmark"></i>      <!-- No tumble -->
+                <i class="fa-solid fa-ban"></i>        <!-- No candeggio -->
+                <i class="fa-solid fa-shirt"></i>      <!-- Lav. a secco moderato -->
+                <i class="fa-solid fa-temperature-low"></i> <!-- 110° -->
+            </div>
+
+            <ul class="care-list">
+                <li>Lavare a mano</li>
+                <li>Non asciugare a tamburo</li>
+                <li>Non usare candeggina</li>
+                <li>Lavaggio a secco moderato</li>
+                <li>Stiro con temperatura max 110 °C</li>
+            </ul>
+
+            <div class="comp-box">
+                <strong>Composizione</strong><br>
+                Tessuto principale: 100 % Poliammidica<br>
+                Fodera principale: 95 % Poliestere, 5 % Elastan
+            </div>
+        </div>
+    </section>
+
+    <!-- ABBINAMENTI -->
+    <h2 class="section-title">Completa il tuo Look</h2>
+
+    <section class="pair-grid">
+
+        <!-- GONNA -->
+        <article class="pair-card">
+            <div class="pair-img">
+                <img src="https://i.imgur.com/U2FlDSf.png" alt="Gonna abbinata MOTIVI">
+                <span class="pair-label">GONNA IN PIZZO</span>
+            </div>
+            <div class="pair-body">
+                <p>Vuoi la gonna abbinata?</p>
+                <a href="#gonna" class="btn">Scopri di più</a>
+            </div>
+        </article>
+
+        <!-- PANTALONE -->
+        <article class="pair-card">
+            <div class="pair-img" style="background:linear-gradient(135deg,#d2b08b 0%,#ae875e 100%);">
+                <img src="https://i.imgur.com/BUeTLLX.png" alt="Pantalone elegante MOTIVI">
+                <span class="pair-label">PANTALONE ELEGANTE</span>
+            </div>
+            <div class="pair-body">
+                <p>È un’occasione più formale?</p>
+                <a href="#pantalone" class="btn">Scopri di più</a>
+            </div>
+        </article>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+
+        <div class="footer-item">
+            <h3>Entra in contatto con la nostra community</h3>
+            <p>Registrati e partecipa allo sviluppo di una collezione davvero co‑creata.</p>
+            <a href="#community" class="btn btn-outline">Partecipa ora</a>
+        </div>
+
+        <div class="footer-item">
+            <h3>Hai notato un difetto nel capo?</h3>
+            <p>Segnala al nostro customer care per sapere come ripararlo e prolungarne la vita.</p>
+            <a href="#difetto" class="btn btn-outline">Contatta il supporto</a>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
